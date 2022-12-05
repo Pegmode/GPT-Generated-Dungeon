@@ -1,4 +1,6 @@
+
 import json
+import pdb
 
 #load map data from json
 map_data = json.loads(open("map.json").read())
@@ -8,7 +10,8 @@ player = {
     'hp': 100,
     'name': 'Player',
     'location': '0',
-    'weapon': '0'
+    'weapon': '0',
+    'inventory': []
 }
 
 #function to print the current room
@@ -22,7 +25,7 @@ def print_room(room):
 #function to move to a new room
 def move_to_room(room_id):
     global player
-    if room_id in map_data['rooms'][player['location']]['connectedRooms']:
+    if room_id in map_data['rooms'][int(player['location'])]['connectedRooms']:
         player['location'] = room_id
         print('You have moved to ' + room_id)
     else:
@@ -31,16 +34,16 @@ def move_to_room(room_id):
 #function to attack a monster
 def attack_monster(monster_id):
     global player
-    if monster_id in map_data['rooms'][player['location']]['monsters']:
+    if monster_id in map_data['rooms'][int(player['location'])]['monsters']:
         #monster is in the room
-        monster = map_data['monsters'][monster_id]
-        weapon = map_data['weapons'][player['weapon']]
+        monster = map_data['monsters'][int(monster_id)]
+        weapon = map_data["weapons"][int(player["weapon"])] 
         print('You attack the ' + monster['monsterName'] + ' with your ' + weapon['weaponName'])
         print('You deal ' + str(weapon['damage']) + ' damage!')
         #remove monster from room
-        map_data['rooms'][player['location']]['monsters'].remove(monster_id)
+        map_data['rooms'][int(player['location'])]['monsters'].remove(monster_id)
         #add items from monster to room
-        map_data['rooms'][player['location']]['items'] += monster['inventory']
+        map_data['rooms'][int(player['location'])]['items'] += monster['inventory']
         print('You have defeated the ' + monster['monsterName'])
     else:
         print('There is no monster here to attack.')
@@ -48,12 +51,12 @@ def attack_monster(monster_id):
 #function to pick up an item
 def pick_up_item(item_id):
     global player
-    if item_id in map_data['rooms'][player['location']]['items']:
+    if item_id in map_data['rooms'][int(player['location'])]['items']:
         #item is in the room
-        item = map_data['items'][item_id]
+        item = map_data['items'][int(item_id)] 
         print('You pick up the ' + item['itemName'])
         #remove item from room
-        map_data['rooms'][player['location']]['items'].remove(item_id)
+        map_data['rooms'][int(player['location'])]['items'].remove(item_id)
         #add item to player inventory
         player['inventory'].append(item_id)
     else:
@@ -70,9 +73,9 @@ def check_for_puzzle():
         if answer == puzzle['solution']:
             print('You have solved the puzzle!')
             #remove final boss from room
-            map_data['rooms'][player['location']]['monsters'].remove('5')
+            map_data['rooms'][int(player['location'])]['monsters'].remove('5')
             #add items from final boss to room
-            map_data['rooms'][player['location']]['items'] += map_data['finalBoss']['inventory']
+            map_data['rooms'][int(player['location'])]['items'] += map_data['finalBoss']['inventory']
             print('You have defeated the final boss!')
         else:
             print('Incorrect answer!')
@@ -82,7 +85,7 @@ def check_for_puzzle():
 #main game loop
 while True:
     #print current room
-    print_room(map_data['rooms'][player['location']])
+    print_room(map_data['rooms'][int(player['location'])])
     #get user input
     command = input('What do you want to do? ')
     #parse command
@@ -99,5 +102,7 @@ while True:
         check_for_puzzle()
     elif command == 'quit':
         break
+    elif command == "debug":
+        pdb.set_trace()
     else:
         print('Invalid command!')
