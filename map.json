@@ -1,0 +1,207 @@
+
+{
+  "rooms": [
+    {
+      "roomId": "0", 
+      "roomName": "Entrance Hall", 
+      "roomDescription": "A long, dark hallway filled with cobwebs and dust. There is a door to the north and a door to the east.", 
+      "connectedRooms": ["1","2"], 
+      "items": ["0","1","2"], 
+      "monsters": ["0"]
+    }, 
+    {
+      "roomId": "1", 
+      "roomName": "Sacrificial Chamber", 
+      "roomDescription": "A dark chamber with a large altar in the middle. The walls are lined with ancient murals depicting a dark ritual. There is a door to the south and a door to the west.", 
+      "connectedRooms": ["0","3"], 
+      "items": ["3","4"], 
+      "monsters": ["1"]
+    }, 
+    {
+      "roomId": "2", 
+      "roomName": "Hall of Mirrors", 
+      "roomDescription": "A long hallway filled with mirrors. Each mirror reflects a distorted version of the room. There is a door to the north and a door to the west.", 
+      "connectedRooms": ["0","4"], 
+      "items": ["5","6"], 
+      "monsters": ["2"]
+    }, 
+    {
+      "roomId": "3", 
+      "roomName": "Treasure Room", 
+      "roomDescription": "A large room filled with treasure. There is a door to the north and a door to the east.", 
+      "connectedRooms": ["1","5"], 
+      "items": ["7","8"], 
+      "monsters": ["3"]
+    }, 
+    {
+      "roomId": "4", 
+      "roomName": "Hall of Statues", 
+      "roomDescription": "A long hallway filled with statues of forgotten gods. There is a door to the south and a door to the east.", 
+      "connectedRooms": ["2","5"], 
+      "items": ["9"], 
+      "monsters": ["4"]
+    }, 
+    {
+      "roomId": "5", 
+      "roomName": "Boss Room", 
+      "roomDescription": "A large, imposing room with a single figure in the center. There is a door to the south and a door to the west.", 
+      "connectedRooms": ["3","4"], 
+      "items": [], 
+      "monsters": ["5"]
+    }
+  ],
+  "items": [
+    {
+      "itemId": "0", 
+      "itemName": "Potion of Health", 
+      "itemDescription": "A small vial of glowing liquid. Drinking it restores health.", 
+      "mass": 0.5, 
+      "value": 10
+    }, 
+    {
+      "itemId": "1", 
+      "itemName": "Potion of Strength", 
+      "itemDescription": "A small vial of glowing liquid. Drinking it increases strength.", 
+      "mass": 0.5, 
+      "value": 10
+    }, 
+    {
+      "itemId": "2", 
+      "itemName": "Potion of Agility", 
+      "itemDescription": "A small vial of glowing liquid. Drinking it increases agility.", 
+      "mass": 0.5, 
+      "value": 10
+    }, 
+    {
+      "itemId": "3", 
+      "itemName": "Gold Coin", 
+      "itemDescription": "A small gold coin. It is worth a lot of money.", 
+      "mass": 0.1, 
+      "value": 500
+    }, 
+    {
+      "itemId": "4", 
+      "itemName": "Silver Coin", 
+      "itemDescription": "A small silver coin. It is worth a bit of money.", 
+      "mass": 0.1, 
+      "value": 100
+    }, 
+    {
+      "itemId": "5", 
+      "itemName": "Key", 
+      "itemDescription": "A small, rusty key. It looks like it can open something.", 
+      "mass": 0.1, 
+      "value": 0
+    }, 
+    {
+      "itemId": "6", 
+      "itemName": "Scroll", 
+      "itemDescription": "An ancient scroll filled with ancient writing.", 
+      "mass": 0.5, 
+      "value": 0
+    }, 
+    {
+      "itemId": "7", 
+      "itemName": "Ruby", 
+      "itemDescription": "A large red gem. It is worth a lot of money.", 
+      "mass": 0.2, 
+      "value": 1000
+    }, 
+    {
+      "itemId": "8", 
+      "itemName": "Emerald", 
+      "itemDescription": "A large green gem. It is worth a lot of money.", 
+      "mass": 0.2, 
+      "value": 1000
+    }, 
+    {
+      "itemId": "9", 
+      "itemName": "Mysterious Crystal", 
+      "itemDescription": "A strange crystal. It is glowing with a faint light.", 
+      "mass": 0.2, 
+      "value": 0
+    }
+  ],
+  "monsters": [
+    {
+      "monsterId": "0", 
+      "monsterName": "Goblin", 
+      "monsterDescription": "A small, green creature. It is armed with a rusty knife.", 
+      "inventory": ["0","1"]
+    }, 
+    {
+      "monsterId": "1", 
+      "monsterName": "Skeleton", 
+      "monsterDescription": "A humanoid creature made of bones. It is armed with a rusty sword.", 
+      "inventory": ["2","3"]
+    }, 
+    {
+      "monsterId": "2", 
+      "monsterName": "Zombie", 
+      "monsterDescription": "A rotting corpse. It is armed with a wooden club.", 
+      "inventory": ["4"]
+    }, 
+    {
+      "monsterId": "3", 
+      "monsterName": "Giant Spider", 
+      "monsterDescription": "A large spider. Its legs are covered in poisonous barbs.", 
+      "inventory": ["5","6"]
+    }, 
+    {
+      "monsterId": "4", 
+      "monsterName": "Ogre", 
+      "monsterDescription": "A large, brutish creature. It is armed with a large club.", 
+      "inventory": ["7","8"]
+    }, 
+    {
+      "monsterId": "5", 
+      "monsterName": "Final Boss", 
+      "monsterDescription": "A powerful creature. It is armed with a powerful weapon.", 
+      "inventory": ["9"]
+    }
+  ],
+  "weapons": [
+    {
+      "weaponId": "0", 
+      "weaponName": "Rusty Knife", 
+      "weaponDescription": "A small, rusty knife.", 
+      "damage": 2
+    }, 
+    {
+      "weaponId": "1", 
+      "weaponName": "Rusty Sword", 
+      "weaponDescription": "A rusty sword.", 
+      "damage": 4
+    }, 
+    {
+      "weaponId": "2", 
+      "weaponName": "Wooden Club", 
+      "weaponDescription": "A crudely made wooden club.", 
+      "damage": 3
+    }, 
+    {
+      "weaponId": "3", 
+      "weaponName": "Large Club", 
+      "weaponDescription": "A large, heavy club.", 
+      "damage": 6
+    }, 
+    {
+      "weaponId": "4", 
+      "weaponName": "Final Boss Weapon", 
+      "weaponDescription": "A powerful weapon wielded by the final boss.", 
+      "damage": 10
+    }
+  ],
+  "finalBoss": {
+    "finalBossId": "0", 
+    "finalBossName": "Dark Lord", 
+    "finalBossDescription": "A powerful creature. It wields a powerful weapon.", 
+    "inventory": ["4"]
+  },
+  "puzzle": {
+    "puzzleId": "0", 
+    "puzzleName": "Riddle of the Key", 
+    "puzzleDescription": "To open the door to the final boss, you must answer this riddle: 'What can be broken but never held?'.", 
+    "solution": "A promise"
+  }
+}
