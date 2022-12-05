@@ -1,6 +1,8 @@
+#Dungeon game entirely genrated by open ai's GPT-3
+#bug fixes by Daniel Chu (https://github.com/Pegmode), BGluth (https://github.com/BGluth)
 
 import json
-import pdb
+
 
 #load map data from json
 map_data = json.loads(open("map.json").read())
@@ -102,7 +104,5 @@ while True:
         check_for_puzzle()
     elif command == 'quit':
         break
-    elif command == "debug":
-        pdb.set_trace()
     else:
         print('Invalid command!')
