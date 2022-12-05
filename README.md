@@ -12,7 +12,7 @@ run game.py with python. For those who are lazy you can play it in your web brow
 - quit
 
 
-## Input
+## GPT-3 input
 
 The input was broken into two parts, `JSON game input` and `Game logic`, where `JSON game input` was generated first.
 
